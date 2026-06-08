@@ -29,6 +29,7 @@ def extract_frames(
     video_path: Path,
     output_dir: Path,
     max_frames: int | None = None,
+    max_short_side: int | None = None,
 ) -> tuple[int, float]:
     """Extrae frames JPEG numerados para SAM 3."""
     output_dir = Path(output_dir)
@@ -48,6 +49,16 @@ def extract_frames(
         ret, frame = cap.read()
         if not ret:
             break
+        if max_short_side is not None and max_short_side > 0:
+            h, w = frame.shape[:2]
+            short = min(h, w)
+            if short > max_short_side:
+                scale = max_short_side / short
+                frame = cv2.resize(
+                    frame,
+                    (int(w * scale), int(h * scale)),
+                    interpolation=cv2.INTER_AREA,
+                )
         cv2.imwrite(str(output_dir / f"{idx:05d}.jpg"), frame)
         idx += 1
     cap.release()

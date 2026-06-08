@@ -1,0 +1,15 @@
+# Perfil 8 GB VRAM: pocos frames, downscale, CPU offload, un prompt
+run_name: low_vram_test
+video_path: data/videos/partido_mvp.mp4
+max_frames: 5
+frame_max_short_side: 720
+
+sam3:
+  version: sam3
+  compile: false
+  use_fa3: false
+  async_loading_frames: false
+  offload_video_to_cpu: true
+  offload_state_to_cpu: true
+  prompts:
+    ball: "soccer ball"

@@ -41,7 +41,12 @@ def run_pipeline(cfg: dict[str, Any]) -> Path:
 
     frame_dir = Path(tempfile.mkdtemp(prefix="tactibot_frames_"))
     try:
-        n_frames, fps = extract_frames(video_path, frame_dir, max_frames=max_frames)
+        n_frames, fps = extract_frames(
+            video_path,
+            frame_dir,
+            max_frames=max_frames,
+            max_short_side=cfg.get("frame_max_short_side"),
+        )
         if n_frames == 0:
             raise RuntimeError("El video no produjo frames.")
 

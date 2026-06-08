@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import gc
 import os
 from pathlib import Path
 from typing import Any
@@ -67,6 +68,9 @@ class Sam3Perception:
             "compile": bool(self.cfg.get("compile", False)),
             "async_loading_frames": bool(self.cfg.get("async_loading_frames", False)),
         }
+        if version == "sam3.1":
+            # Pre-Ampere GPUs lack FA3; disabling avoids extra VRAM pressure.
+            kwargs["use_fa3"] = bool(self.cfg.get("use_fa3", False))
         ckpt = self.cfg.get("checkpoint_path")
         if ckpt:
             kwargs["checkpoint_path"] = ckpt
@@ -91,6 +95,12 @@ class Sam3Perception:
             {
                 "type": "start_session",
                 "resource_path": str(frame_dir),
+                "offload_video_to_cpu": bool(
+                    self.cfg.get("offload_video_to_cpu", True)
+                ),
+                "offload_state_to_cpu": bool(
+                    self.cfg.get("offload_state_to_cpu", True)
+                ),
             }
         )
         session_id = resp["session_id"]
@@ -122,6 +132,8 @@ class Sam3Perception:
 
         if torch.cuda.is_available():
             torch.cuda.synchronize()
+            torch.cuda.empty_cache()
+        gc.collect()
         return mask_dict
 
     def run_all_prompts(
