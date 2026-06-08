@@ -55,8 +55,8 @@ class Sam3Perception:
         except ImportError as e:
             raise ImportError(
                 "Falló la importación de 'sam3' o una dependencia transitiva.\n"
+                "  pip install einops pycocotools\n"
                 "  pip install git+https://github.com/facebookresearch/sam3.git\n"
-                "  pip install einops\n"
                 "Requiere PyTorch con CUDA y acceso Hugging Face (HF_TOKEN o hf auth login).\n"
                 f"Causa original: {e}"
             ) from e

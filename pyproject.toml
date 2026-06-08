@@ -15,6 +15,7 @@ dependencies = [
   "PyYAML>=6.0",
   "tqdm>=4.66",
   "einops>=0.7",
+  "pycocotools>=2.0.8",
   "huggingface_hub>=0.20",
 ]
 
