@@ -1,0 +1,10 @@
+# Ejemplo: clip corto para validar SAM 3 + HF (primeros 90 frames)
+run_name: smoke_test
+video_path: data/videos/partido_mvp.mp4
+max_frames: 90
+sam3:
+  version: sam3
+  prompts:
+    field: "green soccer field"
+    ball: "soccer ball"
+    robot: "robot"

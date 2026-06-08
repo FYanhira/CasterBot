@@ -1,0 +1,44 @@
+# TACTIBOT — configuración por defecto (Fase 1)
+# Rutas relativas a la raíz del repo TACTIBOT/
+
+run_name: default_run
+seed: 42
+
+# Video de entrada (copiar a data/videos/; no leer 17Abril/18abril directamente)
+video_path: data/videos/partido_mvp.mp4
+
+# Límite de frames para pruebas (null = video completo)
+max_frames: null
+
+# SAM 3 en Hugging Face: facebook/sam3 (requiere HF_TOKEN o `hf auth login`)
+sam3:
+  version: sam3
+  checkpoint_path: null
+  compile: false
+  async_loading_frames: false
+  frame_index: 0
+  prompts:
+    field: "green soccer field"
+    ball: "soccer ball"
+    robot: "small robot"
+
+# Mapeo heurístico: objetos "robot" se dividen por lado del campo (ally / opponent)
+team_split:
+  axis: x
+  ally_side: left
+
+events:
+  d_attach_px: 80
+  t_pass_max_sec: 2.0
+  ball_speed_shot_norm: 0.35
+  n_goal_frames: 5
+  goal_y_fraction: 0.08
+  iou_collision: 0.15
+  r_pressure_px: 120
+  k_pressure: 2
+  possession_smooth_frames: 3
+
+render:
+  overlay_alpha: 0.45
+  trail_length: 15
+  output_fps: null
