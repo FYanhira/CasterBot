@@ -16,6 +16,7 @@ dependencies = [
   "tqdm>=4.66",
   "einops>=0.7",
   "pycocotools>=2.0.8",
+  "psutil>=5.9",
   "huggingface_hub>=0.20",
 ]
 

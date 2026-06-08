@@ -72,7 +72,7 @@ pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 pip install "numpy>=1.26,<2" "opencv-python-headless>=4.8,<4.12"
 
 # SAM 3 + deps que Meta no declara en el paquete base
-pip install einops pycocotools
+pip install einops pycocotools psutil
 pip install git+https://github.com/facebookresearch/sam3.git
 
 # CASTERBOT
