@@ -1,4 +1,4 @@
-"""CLI TACTIBOT."""
+"""CLI CASTERBOT."""
 
 from __future__ import annotations
 
@@ -11,7 +11,7 @@ from tactibot.pipeline import run_pipeline
 
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
-        description="TACTIBOT — pipeline SAM 3 para fútbol robótico (FutBotMX)"
+        description="CASTERBOT — pipeline SAM 3 para fútbol robótico (FutBotMX)"
     )
     sub = parser.add_subparsers(dest="command", required=True)
 

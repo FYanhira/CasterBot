@@ -1,5 +1,5 @@
-# TACTIBOT — configuración por defecto (Fase 1)
-# Rutas relativas a la raíz del repo TACTIBOT/
+# CASTERBOT — configuración por defecto (Fase 1)
+# Rutas relativas a la raíz del repo CASTERBOT/
 
 run_name: default_run
 seed: 42

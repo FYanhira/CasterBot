@@ -1,4 +1,4 @@
-"""Wrapper SAM 3 — no modifica el repo upstream en ../futbot/sam3."""
+"""Wrapper SAM 3 — usa el paquete Meta instalado vía pip (no modifica upstream)."""
 
 from __future__ import annotations
 
@@ -54,8 +54,8 @@ class Sam3Perception:
             from sam3 import build_sam3_predictor
         except ImportError as e:
             raise ImportError(
-                "No se encontró el paquete 'sam3'. Instala desde el repo Meta:\n"
-                "  pip install -e /ruta/a/futbot/sam3\n"
+                "No se encontró el paquete 'sam3'. Instálalo desde GitHub:\n"
+                "  pip install git+https://github.com/facebookresearch/sam3.git\n"
                 "Requiere PyTorch con CUDA y acceso Hugging Face (HF_TOKEN o hf auth login)."
             ) from e
 

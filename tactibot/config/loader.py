@@ -8,7 +8,7 @@ from typing import Any
 
 import yaml
 
-# Raíz del repo TACTIBOT (contiene configs/, data/, tactibot/)
+# Raíz del repo CASTERBOT (contiene configs/, data/, tactibot/)
 REPO_ROOT = Path(__file__).resolve().parents[2]
 
 

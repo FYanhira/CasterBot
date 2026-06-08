@@ -1,4 +1,4 @@
-"""Orquestación del pipeline TACTIBOT Fase 1."""
+"""Orquestación del pipeline CASTERBOT Fase 1."""
 
 from __future__ import annotations
 

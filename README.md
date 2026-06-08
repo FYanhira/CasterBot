@@ -1,6 +1,6 @@
-# TACTIBOT
+# CASTERBOT
 
-**Tactical Automated Commentary & Tracking for Robotic Football** — pipeline [SAM 3](https://github.com/facebookresearch/sam3) para la Copa FutBotMX (Visión por Computadora, categoría Profesional).
+Pipeline [SAM 3](https://github.com/facebookresearch/sam3) para la Copa FutBotMX (Visión por Computadora, categoría Profesional): segmentación, tracking, eventos tácticos y transmisión automática con overlays.
 
 ## Estado (Fase 1)
 
@@ -57,19 +57,20 @@ export HF_TOKEN="hf_..."
 Requisitos: Python 3.12+, NVIDIA GPU, CUDA 12.6+, PyTorch 2.7+ (ver [sam3 README](../sam3/README.md)).
 
 ```bash
-cd TACTIBOT
+git clone https://github.com/FYanhira/CASTERBOT.git
+cd CASTERBOT
 
 # Entorno
-conda create -n tactibot python=3.12 -y
-conda activate tactibot
+conda create -n casterbot python=3.12 -y
+conda activate casterbot
 
 # PyTorch CUDA (ajusta según tu driver)
 pip install torch torchvision --index-url https://download.pytorch.org/whl/cu128
 
-# SAM 3 (repo Meta en el monorepo futbot)
-pip install -e ../sam3
+# SAM 3 (dependencia Meta; no hace falta clonar el repo)
+pip install git+https://github.com/facebookresearch/sam3.git
 
-# TACTIBOT
+# CASTERBOT
 pip install -e .
 
 # Autenticación HF (elige A o B arriba)
@@ -99,12 +100,11 @@ Salidas en `outputs/<run_name>/`:
 ## Estructura
 
 ```text
-TACTIBOT/
-├── tactibot/          # Código del proyecto
+CASTERBOT/
+├── tactibot/          # Paquete Python del proyecto
 ├── configs/           # YAML
 ├── data/videos/       # Tus videos (mp4 ignorados por git)
-├── outputs/           # Artefactos (ignorado por git)
-└── ../sam3/           # Dependencia Meta (repo hermano)
+└── outputs/           # Artefactos (ignorado por git)
 ```
 
 ## Licencia

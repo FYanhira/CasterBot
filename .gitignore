@@ -1,5 +1,5 @@
 
-# TACTIBOT — videos y artefactos locales (no subir al repo público)
+# CASTERBOT — videos y artefactos locales (no subir al repo público)
 data/videos/*.mp4
 data/videos/*.MP4
 data/videos/*.avi

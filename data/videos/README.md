@@ -1,4 +1,4 @@
-# Videos de trabajo (TACTIBOT)
+# Videos de trabajo (CASTERBOT)
 
 Coloca aquí **solo los videos que usarás** en el pipeline (copiados desde tus carpetas locales `17Abril`, `18abril`, etc.).
 
