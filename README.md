@@ -25,8 +25,9 @@ Necesitas acceso a [facebook/sam3](https://huggingface.co/facebook/sam3). El mod
 
 ```bash
 pip install huggingface_hub
-huggingface-cli login
+hf auth login
 # Pega tu token cuando lo pida (Settings → Access Tokens en huggingface.co)
+# Verifica: hf auth whoami
 ```
 
 No hace falta poner el token en el código. Se guarda en `~/.cache/huggingface/`.
@@ -77,7 +78,7 @@ pip install git+https://github.com/facebookresearch/sam3.git
 pip install -e .
 
 # Autenticación HF (elige A o B arriba)
-huggingface-cli login
+hf auth login
 ```
 
 ## Uso
